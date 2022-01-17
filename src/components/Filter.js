@@ -1,18 +1,10 @@
-import { useState } from "react";
-
-function Filter() {
-  const [selectedFilter, setSelectedFilter] = useState("");
-
-  const handleChange = (event) => {
-    console.log(event);
-  };
-
+function Filter({ handleFilter, selectedFilter}) {
   return (
     <div>
-      <select name="greased" onChange={handleChange} value={selectedFilter}>
-        <option>[Filter by]</option>
-        <option>Greased</option>
-        <option>Not greased</option>
+      <select name="greased" onChange={handleFilter} value={selectedFilter}>
+        <option value="all">[Filter by]</option>
+        <option value="greased">Greased</option>
+        <option value="not greased">Not greased</option>
       </select>
     </div>
   );
