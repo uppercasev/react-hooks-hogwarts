@@ -11,7 +11,7 @@ function Tile({ hog }) {
   return (
     <div class="card" onClick={handleClick}>
       <div class="image">
-        <img src={hog.image} />
+        <img src={hog.image} alt={hog.name} />
       </div>
       <TileDetails hog={hog} showDetails={showDetails} />
     </div>
