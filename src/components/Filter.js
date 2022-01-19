@@ -7,7 +7,6 @@ function Filter({ handleFilter, selectedFilter }) {
         <option value="greased">Greased</option>
         <option value="not greased">Not greased</option>
       </select>
-      <hr></hr>
     </>
   );
 }

@@ -4,6 +4,7 @@ import Tile from "./Tile";
 import Filter from "./Filter";
 import hogs from "../porkers_data";
 import Sort from "./Sort";
+import AddForm from "./AddForm";
 
 function App() {
   const [hogsToDisplay, setHogsToDisplay] = useState(hogs);
@@ -47,7 +48,7 @@ function App() {
 
     const sortBy = event.target.value;
     setSelectedSort(sortBy);
-    
+
     if (sortBy === "alphabetical") {
       setHogsToDisplay(orderedName());
     } else if (sortBy === "reverse") {
@@ -61,11 +62,17 @@ function App() {
     }
   };
 
+  const addHog = (newHog) => {
+    setHogsToDisplay([newHog, ...hogsToDisplay]);
+  };
+
   return (
     <div className="App">
       <Nav />
       <Sort handleSort={handleSort} selectedSort={selectedSort} />
       <Filter handleFilter={handleFilter} selectedFilter={selectedFilter} />
+      <AddForm addHog={addHog} />
+      <hr></hr>
       <div class="ui link cards">
         {hogsToDisplay.map((hog) => {
           return <Tile hog={hog} key={hog.name} />;
